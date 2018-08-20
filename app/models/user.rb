@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  attr_accessor :remember_token  #advanced login
   before_save {email.downcase!}
   validates :name, presence: true, length: {maximum: 50}
 
@@ -18,4 +19,26 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  # Returns a random token
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+   # Remembers a user in the database for use in persistent sessions.
+  def remember     #(Advanced login)
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  def authenticated?(remember_token) #(Advanced login)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  # Forgets a user. (Advanced login)
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end
+
