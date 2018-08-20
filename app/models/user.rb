@@ -11,7 +11,7 @@ class User < ApplicationRecord
                     uniqueness: {case_sensitive: false}
 
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   # Mengembalikan pencirian hash dari string yang diberikan
   def User.digest(string)
