@@ -11,6 +11,7 @@ abas:
   name: Abas
   email: abasjr@yahuy.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 galuh:
   name: Galuh
