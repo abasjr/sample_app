@@ -8,7 +8,7 @@
 #   name: MyString
 #   email: MyString
 abas:
-  name: Abas Jr
+  name: Abas
   email: abasjr@yahuy.com
   password_digest: <%= User.digest('password') %>
 
@@ -16,3 +16,15 @@ galuh:
   name: Galuh
   email: galuh@gmail.com
   password_digest: <%= User.digest('password') %>
+
+neymar:
+  name: Neymar
+  email: neymar@yahuy.com
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
