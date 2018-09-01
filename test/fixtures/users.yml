@@ -7,6 +7,29 @@
 # two:
 #   name: MyString
 #   email: MyString
+
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+kris:
+  name: Christian Yost Jr
+  email: example-4@railstutorial.org
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 abas:
   name: Abas
   email: abasjr@yahuy.com
@@ -18,13 +41,6 @@ abas:
 galuh:
   name: Galuh
   email: galuh@gmail.com
-  password_digest: <%= User.digest('password') %>
-  activated: true
-  activated_at: <%= Time.zone.now %>
-
-neymar:
-  name: Neymar
-  email: neymar@yahuy.com
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
