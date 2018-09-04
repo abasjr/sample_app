@@ -1,4 +1,6 @@
-require_relative 'boot'
+require_relative 'boot' #asli bawaan rails 5
+
+require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
@@ -14,5 +16,10 @@ module SampleApp
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+
+
+    # Include the authenticity token in remote forms
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
